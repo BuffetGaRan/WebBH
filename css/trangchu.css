@@ -1,0 +1,178 @@
+body {
+  background: #dcdde1; 
+  scroll-behavior: smooth;}
+  body .navbar-fluid {
+    background: #f8f9fa; }
+  body img {
+    width: 100%; }
+  body .navbar {
+    padding: 5px; }
+    body .navbar .navbar-brand img {
+      width: 50px; }
+  body .sale .carousel {
+    margin-top: 25px; }
+  body .sale .carousel-inner img {
+    height: 330px; }
+  body .sale .quangcao img {
+    height: 177px;
+    width: 100%;
+    margin-top: 25px; }
+  body .sale .click_sale {
+    display: flex;
+    margin-left: -40px; }
+    body .sale .click_sale li {
+      border: 1px solid #dcdde1;
+      list-style-type: none;
+      background: white;
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold; }
+      body .sale .click_sale li p {
+        margin-top: 10px; }
+  body .product img {
+    width: 250px;
+    height: 50px;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    margin: 15px 0 0 0; }
+  body .product .col {
+    padding: 10px; }
+  body .highlight img {
+    width: 100%; }
+  body .highlight .header {
+    margin-top: 30px;
+    background: white; }
+    body .highlight .header button {
+      outline: none;
+      background: white;
+      border: 2px solid grey;
+      border-radius: 4px;
+      margin: 7px;
+      padding: 0 20px; }
+    body .highlight .header h5 {
+      margin-top: 8px;
+      font-weight: bold; }
+  body .highlight .header:nth-child(1) {
+    background: rgba(127, 143, 166, 0.5);
+    border-right: 5px solid;
+    border-color: black;
+    border-radius: 0 10px 10px 0; }
+    body .highlight .header:nth-child(1) h5 {
+      margin-left: 20px; }
+  body .highlight .content .col-3 {
+    padding: 20px;
+    background: white;
+    border: 2px solid #f8f9fa; }
+    body .highlight .content .col-3 a img:hover {
+      transform: scale(1.01);
+      transition: .4s; }
+  body .highlight .content a:nth-child(2)::before {
+    content: 'giamr';
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: yellow;
+    position: absolute;
+    left: 100px; }
+  body .highlight .content .col-3::before {
+    left: -100px;
+    content: '';
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: yellow;
+    position: absolute; }
+  body .footer {
+    margin-top: 50px;
+    background: orange; }
+    body .footer a {
+      color: black; }
+    body .footer .col-3 {
+      margin: 50px 0 100px 0; }
+      body .footer .col-3 p {
+        margin-top: 13px;
+        line-height: 15px; }
+      body .footer .col-3 i {
+        font-size: 35px;
+        margin: 30px 15px; }
+    body .footer .col-3:nth-child(2) a {
+      font-weight: bold; }
+    body .footer .a_edit a {
+      display: block;
+      line-height: 35px; }
+    body .chat{
+      position: fixed;
+      bottom: -300px;
+      right: 10px;
+      border: 1px solid;
+      border-top-left-radius: 6px; 
+      border-top-right-radius: 6px; 
+    }
+    body .chat .header-chat {
+      width: 270px;
+      height: 26px;
+      background: red;
+      text-align: center;
+      padding: 3px 10px;
+      border-top-left-radius: 6px; 
+      border-top-right-radius: 6px; 
+      cursor: pointer;
+    }
+    body .chat .header-chat p{
+      font-weight: bold;
+      font-size: 13px;
+      color: white;
+    }
+    body .chat .area-chat{
+      width: 270px;
+      height: 300px;
+      background: white;
+      position: relative;
+    }
+    body .chat .area-chat small{
+      margin-left: 5px;
+      color: red;
+    }
+    body .chat .area-chat hr{
+      margin-top: 3px;
+    }
+    body .chat .area-show{
+      width: 100%;
+      height: 225px;
+      background: white;
+      position: absolute;
+    }
+    body .chat .area-chat input{
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
+      width: 90%;
+      height: 35px;
+      outline: none;
+      box-shadow: inset .1px .1px 6px brown;
+      border: 1px solid #7f8fa6;
+      border-radius: 7px;
+    }
+    body .chat .area-chat input::placeholder{
+      font-size: 14px;
+      text-align: center;
+    }
+    body .scroll{
+      width: 30px;
+      height: 30px;
+      border: 2px solid black;
+      text-align: center;
+      border-radius: 50%;
+      padding: 2px;
+      position: fixed;
+      right: 30px;
+      top: 70%;
+      visibility: hidden;
+      background: white;
+    }
+    body .scroll a{
+      color: black;
+    }

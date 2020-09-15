@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quản Trị</title>
+	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+	<link href="./src/BS/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="./css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="./src/Icon/css/all.css">
+</head>
+<script src="socket.io/socket.io.js"></script>
+<style type="text/css">
+::-webkit-scrollbar {
+	width: 0;
+}
+</style>
+<body>
+
+	<!-- Quản Trị -->
+	<div class="quantri">
+		<!-- Button Menu -->
+		<input type="checkbox" id="a">
+		<label for="a">
+			<i id="s1" class="fas fa-times"></i>
+			<i id="s2" class="fas fa-bars"></i>
+		</label>
+
+		<!-- Tab -->
+		<div class="tab">
+			<h3>QUẢN TRỊ</h3>
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tin-nhan">Tin nhắn</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#kho-hang">Kho hàng</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#lien-he-dev">Liên Hệ DEV</a></li>
+				<li><a href="#">Đăng xuất</a></li>
+			</ul>
+		</div>
+
+		<!-- Pager -->
+		<div class="tab-content">
+
+			<!-- Mess -->
+			<div id="tin-nhan" class="container tab-pane mess"><br>
+				<div class="container">
+					<div class="row">
+						<div class="col-3 person">
+							<h3>Khách hàng 1</h3>
+							<h3>Khách hàng 1</h3>
+							<h3>Khách hàng 1</h3>
+							<h3>Khách hàng 1</h3>
+						</div>
+						<div class="col-9 chat-content">
+							<input type="text" name="txt-chat-content" placeholder="Nhập tin nhắn tại đây">
+							<button>GỬI</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Storage -->
+			<div id="kho-hang" class="container tab-pane storage active"><br>
+				<div class="row">
+					<div class="col-12">
+						<h4 class="text-center">Cập nhập, xóa, chỉnh sửa sản phẩm</h4>
+					</div>
+					<div class="col-3" data-toggle="modal" data-target="#plus">
+						<i class="far fa-plus-square"></i>
+						<p>Thêm sản phẩm</p>
+					</div>
+					<div class="col-3" data-toggle="modal" data-target="#minus">
+						<i class="far fa-minus-square"></i>
+						<p>Xóa sản phẩm</p>
+					</div>
+					<div class="col-3" data-toggle="modal" data-target="#repair">
+						<i class="fas fa-redo"></i>
+						<p>Sửa sản phẩm</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Hotline -->
+			<div id="lien-he-dev" class="container tab-pane hotline"><br>
+				<h3>LIÊN HỆ DEV</h3>
+				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+			</div>
+		</div>
+
+		<!-- Background -->
+		<div class="bg"></div>
+	</div>
+	<!-- Modal Plus-->
+	<div class="modal fade" id="plus">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">THÊM SẢN PHẨM</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- Modal body -->
+				<div class="modal-body">
+					<form>
+						<label for="brand">Hãng sản phẩm:</label><br>
+						<input type="text" id="brand-product" name="brand" value=""><br>
+						<label for="name">Tên sản phẩm:</label><br>
+						<input type="text" id="name-product" name="name" value=""><br>
+						<label for="price">Giá sản phẩm:</label><br>
+						<input type="text" id="price-product" name="price" value=""><br>
+						<label for="info">Chi tiết sản phẩm:</label><br>
+						<textarea rows="3" cols="60" id="info-product" name="info"></textarea><br>
+						<label for="image">Chọn ảnh:</label><br>
+						<input type="file" id="plus-image" name="image"><br>
+						<button id="btn-confirm">XONG</button><br>
+					</form>
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">ĐÓNG</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal Minus-->
+	<div class="modal fade" id="minus">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">XÓA SẢN PHẨM</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- Modal body -->
+				<div class="modal-body">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Hãng sản phẩm</th>
+								<th>Tên sản phẩm</th>
+								<th>Giá sản phẩm</th>
+								<th>Xóa sản phẩm</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-trash-alt"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-trash-alt"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-trash-alt"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-trash-alt"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-trash-alt"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-trash-alt"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-trash-alt"></i></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">ĐÓNG</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal Repair-->
+	<div class="modal fade" id="repair">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">SỬA SẢN PHẨM</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- Modal body -->
+				<div class="modal-body">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Hãng sản phẩm</th>
+								<th>Tên sản phẩm</th>
+								<th>Giá sản phẩm</th>
+								<th>Sửa sản phẩm</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-retweet" data-toggle="modal" data-target="#repair-plus"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-retweet" data-toggle="modal" data-target="#repair-plus"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-retweet" data-toggle="modal" data-target="#repair-plus"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-retweet" data-toggle="modal" data-target="#repair-plus"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-retweet" data-toggle="modal" data-target="#repair-plus"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-retweet" data-toggle="modal" data-target="#repair-plus"></i></td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+								<td><i class="fas fa-retweet" data-toggle="modal" data-target="#repair-plus"></i></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="modal fade" id="repair-plus">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<!-- Modal Header -->
+								<div class="modal-header">
+									<h4 class="modal-title">SỬA SẢN PHẨM</h4>
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>
+								<!-- Modal body -->
+								<div class="modal-body">
+									<form>
+										<label for="brand">Hãng sản phẩm:</label><br>
+										<input type="text" id="brand-product" name="brand" value=""><br>
+										<label for="name">Tên sản phẩm:</label><br>
+										<input type="text" id="name-product" name="name" value=""><br>
+										<label for="price">Giá sản phẩm:</label><br>
+										<input type="text" id="price-product" name="price" value=""><br>
+										<label for="image">Chọn ảnh:</label><br>
+										<input type="file" id="plust-image" name="image"><br>
+										<label for="info">Chi tiết sản phẩm:</label><br>
+										<textarea rows="3" cols="60" id="info-product" name="info"></textarea><br>
+										<button>XONG</button><br>
+									</form>
+								</div>
+								<!-- Modal footer -->
+								<div class="modal-footer">
+									<button type="button" class="btn btn-danger" data-dismiss="modal">ĐÓNG</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">ĐÓNG</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="./src/Jquery/jquery.js">
+</script>
+<script src="./src/main.js">
+</script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="./src/BS/js/bootstrap.min.js">
+</script>
+</html>

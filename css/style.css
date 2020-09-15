@@ -1,0 +1,396 @@
+@charset "UTF-8";
+body {
+  background: #dcdde1;
+  padding: 0;
+  margin: 0;
+  /*Navbar*/
+  /*Content Iphone*/
+  /*Content Samsung*/
+  /*Footer*/
+  /*Chat*/
+  /*Quản Trị*/
+  /*Login*/ }
+  body img {
+    width: 100%; }
+  body .navbar-fluid {
+    background: #f8f9fa; }
+    body .navbar-fluid .navbar {
+      padding: 5px; }
+      body .navbar-fluid .navbar img {
+        width: 50px; }
+  body .content_iphone {
+    /*Carousel*/
+    /*Product*/ }
+    body .content_iphone .carousel {
+      width: 80%;
+      /*Img*/ }
+      body .content_iphone .carousel img {
+        width: 100%; }
+    body .content_iphone .product {
+      margin-top: 50px;
+      /*Selection*/
+      /*Item*/ }
+      body .content_iphone .product .selection p {
+        font-weight: bold;
+        font-size: 13px;
+        background: brown;
+        padding: 5px 0 5px 10px;
+        border: 1px solid black;
+        margin-left: -15px;
+        color: white; }
+      body .content_iphone .product .selection ul {
+        margin: -16px 0 10px -15px;
+        border: 1px solid; }
+        body .content_iphone .product .selection ul li {
+          list-style-type: none;
+          margin-left: -20px; }
+          body .content_iphone .product .selection ul li a {
+            font-size: 14px;
+            color: black; }
+        body .content_iphone .product .selection ul li:first-child {
+          margin-top: 10px; }
+        body .content_iphone .product .selection ul li:last-child {
+          margin-bottom: 10px; }
+      body .content_iphone .product .selection div:nth-child(1) p {
+        margin-top: 72px; }
+      body .content_iphone .product .item {
+        /*Alpha*/
+        /*Intro*/
+        /*Comment*/ }
+        body .content_iphone .product .item a img:hover {
+          transform: scale(1.01);
+          transition: .4s; }
+        body .content_iphone .product .item .col-3 {
+          padding: 20px;
+          background: white;
+          border: 2px solid #f8f9fa; }
+        body .content_iphone .product .item .bg-light {
+          width: 35%;
+          margin: auto;
+          border-left: 5px solid black;
+          border-right: 5px solid black; }
+        body .content_iphone .product .item .next-page {
+          display: flex;
+          justify-content: space-between; }
+          body .content_iphone .product .item .next-page p {
+            margin-top: 10px;
+            margin-left: -15px; }
+          body .content_iphone .product .item .next-page .pagination {
+            margin-top: 10px;
+            margin-right: -15px; }
+            body .content_iphone .product .item .next-page .pagination li a {
+              box-shadow: none; }
+        body .content_iphone .product .item hr {
+          margin: 30px; }
+        body .content_iphone .product .item .alpha {
+          display: flex;
+          margin-left: -15px;
+          /*p*/
+          /*small*/ }
+          body .content_iphone .product .item .alpha p {
+            font-weight: bold; }
+          body .content_iphone .product .item .alpha small {
+            margin: 3px;
+            cursor: pointer;
+            color: red;
+            text-decoration: underline;
+            font-size: 13px; }
+          body .content_iphone .product .item .alpha small:nth-child(2) {
+            margin-left: 10px; }
+        body .content_iphone .product .item .intro {
+          margin-top: 30px; }
+          body .content_iphone .product .item .intro h3 {
+            text-align: center;
+            margin: 30px 0 20px; }
+          body .content_iphone .product .item .intro p {
+            font-size: 15px; }
+          body .content_iphone .product .item .intro p:nth-child(6) {
+            margin-left: 0; }
+        body .content_iphone .product .item .comment {
+          margin-top: 30px;
+          position: relative;
+          /*Text area*/
+          /*Button*/ }
+          body .content_iphone .product .item .comment textarea {
+            outline: none;
+            margin-top: 10px;
+            border-radius: 5px; }
+          body .content_iphone .product .item .comment button {
+            width: 80px;
+            font-size: 15px;
+            font-weight: bold;
+            border: 1px solid rgba(47, 54, 64, 0.6);
+            background: white;
+            outline: none;
+            border-bottom-right-radius: 5px;
+            position: absolute;
+            right: 0;
+            margin-top: 109px; }
+  body .footer {
+    margin-top: 50px;
+    background: orange;
+    /*Col-3*/ }
+    body .footer a {
+      color: black; }
+    body .footer .col-3 {
+      margin: 50px 0 100px 0; }
+      body .footer .col-3 p {
+        margin-top: 13px;
+        line-height: 15px; }
+      body .footer .col-3 i {
+        font-size: 35px;
+        margin: 30px 15px; }
+    body .footer .col-3:nth-child(2) a {
+      font-weight: bold; }
+    body .footer .a_edit a {
+      display: block;
+      line-height: 35px; }
+  body .chat {
+    width: 200px;
+    height: 20px;
+    background: red; }
+  body .quantri * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none; }
+  body .quantri label {
+    position: absolute;
+    z-index: 1; }
+    body .quantri label i {
+      font-size: 20px;
+      cursor: pointer;
+      padding: 2px 5px;
+      border: 2px solid;
+      color: white;
+      background: black;
+      border-radius: 5px;
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      transition: .5s; }
+    body .quantri label #s1 {
+      opacity: 0;
+      transition: .4s; }
+  body .quantri #a:checked ~ .tab {
+    left: 0; }
+  body .quantri #a:checked ~ label #s2 {
+    opacity: 0;
+    transition: .4s;
+    left: 140px; }
+  body .quantri #a:checked ~ label #s1 {
+    transition: .6s;
+    left: 160px;
+    opacity: 1; }
+  body .quantri #a:checked ~ .bg {
+    margin-left: 200px;
+    transition: .6s; }
+  body .quantri #a:checked ~ .tab-content {
+    top: 50%;
+    left: 56%;
+    transform: translate(-50%, -50%);
+    transition: .6s; }
+  body .quantri input {
+    display: none; }
+  body .quantri .tab {
+    width: 200px;
+    height: 100vh;
+    background: #6D214F;
+    position: absolute;
+    left: -200px;
+    transition: .6s; }
+    body .quantri .tab h3 {
+      position: relative;
+      margin-left: 35px;
+      margin-top: 12px;
+      color: white;
+      font-size: 20px; }
+    body .quantri .tab ul {
+      position: relative;
+      top: 20px;
+      text-transform: uppercase; }
+      body .quantri .tab ul li {
+        padding: 5px 15px;
+        border-bottom: 1px solid; }
+        body .quantri .tab ul li a {
+          padding-left: 10px;
+          transition: .5s;
+          color: white;
+          font-size: 15px; }
+        body .quantri .tab ul li a:hover {
+          padding-left: 20px;
+          transition: .5s; }
+  body .quantri .tab-content {
+    position: absolute;
+    width: 80%;
+    height: 670px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: grey;
+    overflow: auto;
+    border: 3px solid white;
+    border-radius: 10px;
+    transition: .6s;
+    /*Mess*/
+    /*Storage*/ }
+    body .quantri .tab-content .mess .person {
+      background: black;
+      height: 620px;
+      position: absolute;
+      left: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      overflow: auto; }
+      body .quantri .tab-content .mess .person h3 {
+        color: white;
+        margin: 10px 0;
+        border-bottom: 1px solid white;
+        padding: 6px 10px;
+        cursor: pointer;
+        font-size: 20px;
+        transition: .3s; }
+      body .quantri .tab-content .mess .person h3:hover {
+        padding-left: 20px;
+        transition: .3s; }
+    body .quantri .tab-content .mess .chat-content {
+      background: white;
+      height: 620px;
+      position: absolute;
+      right: 10px;
+      border: 1px solid black;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      display: flex; }
+      body .quantri .tab-content .mess .chat-content input {
+        display: flex;
+        outline: none;
+        width: 90%;
+        height: 35px;
+        border: 1px solid black;
+        border-radius: 10px;
+        position: absolute;
+        bottom: 10px;
+        right: 70px;
+        font-size: 13px;
+        text-transform: none; }
+      body .quantri .tab-content .mess .chat-content input::placeholder {
+        font-size: 15px;
+        text-transform: none;
+        padding-left: 10px; }
+      body .quantri .tab-content .mess .chat-content button {
+        width: 55px;
+        height: 30px;
+        position: absolute;
+        bottom: 13px;
+        right: 10px;
+        font-size: 15px;
+        font-weight: bold;
+        border: 1px solid black;
+        border-radius: 3px; }
+    body .quantri .tab-content .storage {
+      position: relative;
+      margin: auto; }
+      body .quantri .tab-content .storage .col-3 {
+        cursor: pointer;
+        border: 2px solid black;
+        height: 300px;
+        margin: 120px auto;
+        background: #dcdde1;
+        box-shadow: 1px 1px 10px rgba(53, 59, 72, 0.8), -1px -1px 10px rgba(53, 59, 72, 0.8); }
+        body .quantri .tab-content .storage .col-3 i {
+          font-size: 100px;
+          position: absolute;
+          top: 40%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: red; }
+        body .quantri .tab-content .storage .col-3 p {
+          position: absolute;
+          top: 70%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+  body .quantri .bg {
+    background: url("/ImgVid/bg-quantri.jpg");
+    background-size: cover;
+    height: 100vh;
+    transition: .5s; }
+  body .login {
+    padding: 0;
+    margin: 0; }
+    body .login .bg {
+      background: url("../ImgVid/bg-login.jpg");
+      background-size: cover;
+      width: 100%;
+      height: 100vh;
+      filter: brightness(60%);
+      overflow: hidden; }
+    body .login .main {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 500px;
+      width: 300px;
+      line-height: 25px; }
+      body .login .main .bg2 {
+        width: 100%;
+        height: 100%;
+        background: url("../ImgVid/bg-login.jpg");
+        background-size: cover;
+        box-shadow: 0 0 200px;
+        position: absolute;
+        opacity: .4; }
+      body .login .main h1 {
+        color: #ff3838;
+        left: 55px;
+        margin-top: 90px;
+        z-index: 1;
+        position: absolute;
+        font-size: 32px;
+        text-transform: uppercase; }
+      body .login .main form {
+        position: absolute;
+        top: 150px; }
+        body .login .main form input {
+          margin-left: 15px;
+          width: 90%;
+          border: none;
+          outline: none;
+          border-bottom: 1px solid #18dcff;
+          border-radius: 10px;
+          line-height: 30px;
+          font-size: 15px;
+          text-align: center; }
+        body .login .main form label {
+          font-size: 20px;
+          color: #ff4d4d;
+          margin-left: 20px; }
+        body .login .main form button {
+          cursor: pointer;
+          font-size: 20px;
+          height: 40px;
+          width: 200px;
+          margin: 30px 50px;
+          color: #ff3838;
+          border-radius: 10px;
+          background-color: #32ff7e;
+          border: none;
+          outline: none; }
+        body .login .main form button:hover {
+          box-shadow: inset -1px 1px 10px rgba(75, 75, 75, 0.7); }
+      body .login .main a {
+        position: relative;
+        top: 370px;
+        display: block;
+        left: 25%;
+        font-size: 15px;
+        text-decoration: none;
+        color: white;
+        width: 50%;
+        text-align: center; }
+      body .login .main a:hover {
+        background-color: #6a40494f;
+        transition: .3s;
+        border-radius: 7px;
+        color: black; }
