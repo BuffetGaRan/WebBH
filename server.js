@@ -1,16 +1,17 @@
-var express = require('express');
-var app = express();
-var multer = require('multer');
-var bodyParser = require('body-parser');
-var pug = require('pug');
+const express = require('express');
+const app = express();
+const multer = require('multer');
+const bodyParser = require('body-parser');
+const pug = require('pug');
+const mysql = require('mysql');
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+http.listen(3000);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./'));
 app.set('views','./views');
 app.set('view engine', 'pug');
-// var server = require('http').Server(app);
-// var io = require('socket.io')(server);
-app.listen(3000);
-var mysql = require('mysql');
 
 var con = mysql.createConnection({
 	host: "localhost",
@@ -23,20 +24,20 @@ var diskStorage = multer.diskStorage({
 	destination: (req, file, callback) => {
     // Định nghĩa nơi file upload sẽ được lưu lại
     callback(null, "ImgVid");
-},
-filename: (req, file, callback) => {
-    // ở đây các bạn có thể làm bất kỳ điều gì với cái file nhé.
-    // Mình ví dụ chỉ cho phép tải lên các loại ảnh png & jpg
-    var math = ["image/png", "image/jpeg"];
-    if (math.indexOf(file.mimetype) === -1) {
-    	var errorMess = `The file <strong>${file.originalname}</strong> is invalid. Only allowed to upload image jpeg or png.`;
-    	return callback(errorMess, null);
-    }
+	},
+	filename: (req, file, callback) => {
+	    // ở đây các bạn có thể làm bất kỳ điều gì với cái file nhé.
+	    // Mình ví dụ chỉ cho phép tải lên các loại ảnh png & jpg
+	    var math = ["image/png", "image/jpeg"];
+	    if (math.indexOf(file.mimetype) === -1) {
+	    	var errorMess = `The file <strong>${file.originalname}</strong> is invalid. Only allowed to upload image jpeg or png.`;
+	    	return callback(errorMess, null);
+	    }
 
-    // Tên của file thì mình nối thêm một cái nhãn thời gian để đảm bảo không bị trùng.
-    let filename = `${Date.now()}-webbh-${file.originalname}`;
-    callback(null, filename);
-}
+	    // Tên của file thì mình nối thêm một cái nhãn thời gian để đảm bảo không bị trùng.
+	    let filename = `${Date.now()}-webbh-${file.originalname}`;
+	    callback(null, filename);
+	}
 });
 
 var uploadFile = multer({storage: diskStorage}).single("file");
@@ -60,7 +61,6 @@ app.post("/upload", (req, res) => {
 	    var price = body.price;
 	    var info = body.info;
 	    var file = req.file.path;
-	    console.log(body);
 
 	    con.query("INSERT INTO sanpham (brand,name,price,info,image) VALUES ('"+brand+"','"+name+"','"+price+"','"+info+"','"+file+"')", function(err, result){});
 	    console.log("complete");
@@ -71,6 +71,34 @@ app.post("/upload", (req, res) => {
 	    // Không có lỗi thì lại render cái file ảnh về cho client.
 	    // Đồng thời file đã được lưu vào thư mục uploads
 	    // res.sendFile(path.join(`${__dirname}/uploads/${req.file.filename}`));
+	});
+	res.render('uploaded');
+});
+
+app.get('/', function(req, res) {
+	var productList = [];
+
+	// Do the query to get data.
+	con.query('SELECT * FROM sanpham', function(err, result, fields) {
+	  	if (err) {
+	  		res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+	  	} else {
+	  		// Loop check on each row
+	  		for (var i = 0; i < result.length; i++) {
+
+	  			// Create an object to save current row's data
+		  		var product = {
+		  			'brand':result[i].brand,
+		  			'name':result[i].name,
+		  			'price':result[i].price
+		  		}
+		  		// Add object into array
+		  		productList.push(product);
+	  	}
+
+	  	// Render index.pug page using array 
+	  	res.render('index', {"productList": productList});
+	  	}
 	});
 });
 
@@ -93,9 +121,5 @@ con.connect(function(err) {
 // });
 
 app.get('/', function(req, res){
-	res.sendFile('index.html');
-});
-
-app.get('/users', function(req, res){
 	res.render('index');
 });
