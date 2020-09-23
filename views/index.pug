@@ -1,0 +1,206 @@
+- const blogs = [{title: "The 5 things Sketch can do that Photoshop can't", subTitle: "Even if you haven't made the switch yet, you're likely aware of the mass of exodus of Photoshop users switching to Sketch", imgCover: "/assets/images/design-tools.jpg"},{title: "Altered fast food logos and they're going viral on twitter",subTitle: "Not all heroes ware capes",imgCover: "/assets/images/burger.jpg"},{title: "Skill work better with developers",subTitle:"No, this isn't another 'should designers code' article",imgCover: "/assets/images/coding.jpg"},{title: "Designer in USA",imgCover: "/assets/images/us-flag.jpg"},{title: "How to join a great conversation",imgCover: "/assets/images/conversation.jpeg" },{title: "3 things we don't know about design",imgCover: "/assets/images/questions.jpeg"}]
+- const banners = [{title: "We can't stop smilling at these 10 pride month designs", imgCover: "/assets/images/banner-1.webp"}, {title: "Welcome to Codegym Blogs", imgCover: "/assets/images/banner-2.jpeg" }]
+
+doctype html
+html
+  head
+    title Quản Trị
+    meta(content='width=device-width, initial-scale=1, shrink-to-fit=no', name='viewport')
+    link(href='./src/BS/css/bootstrap.min.css', rel='stylesheet')
+    link(href='./css/style.css', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='./src/Icon/css/all.css')
+    script(src='socket.io/socket.io.js')
+    style(type='text/css').
+      ::-webkit-scrollbar {
+      width: 0;
+      }
+  body
+    // Quản Trị
+    .quantri
+      // Button Menu
+      input#a(type='checkbox')
+      label(for='a')
+        i#s1.fas.fa-times
+        i#s2.fas.fa-bars
+      // Tab
+      .tab
+        h3 QUẢN TRỊ
+        ul.nav.nav-tabs(role='tablist')
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#tin-nhan') Tin nhắn
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#kho-hang') Kho hàng
+          li.nav-item
+            a.nav-link(data-toggle='tab', href='#lien-he-dev') Liên Hệ DEV
+          li
+            a(href='#') Đăng xuất
+      // Pager
+      .tab-content
+        // Mess
+        #tin-nhan.container.tab-pane.mess
+          br
+          .container
+            .row
+              .col-3.person
+                h3 Khách hàng 1
+                h3 Khách hàng 1
+                h3 Khách hàng 1
+                h3 Khách hàng 1
+              .col-9.chat-content
+                input(type='text', name='txt-chat-content', placeholder='Nhập tin nhắn tại đây')
+                button GỬI
+        // Storage
+        #kho-hang.container.tab-pane.storage.active
+          br
+          .row
+            .col-12
+              h4.text-center Cập nhập, xóa, chỉnh sửa sản phẩm
+            .col-3(data-toggle='modal', data-target='#plus')
+              i.far.fa-plus-square
+              p Thêm sản phẩm
+            .col-3(data-toggle='modal', data-target='#minus')
+              i.far.fa-minus-square
+              p Xóa sản phẩm
+            .col-3(data-toggle='modal', data-target='#repair')
+              i.fas.fa-redo
+              p Sửa sản phẩm
+        // Hotline
+        #lien-he-dev.container.tab-pane.hotline
+          br
+          h3 LIÊN HỆ DEV
+          p
+            | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+      // Background
+      .bg
+    // Modal Plus
+    #plus.modal.fade
+      .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            h4.modal-title THÊM SẢN PHẨM
+            button.close(type='button', data-dismiss='modal') ×
+          // Modal body
+          .modal-body
+            form(action='/upload', method='POST', enctype='multipart/form-data')
+              label(for='brand') Hãng sản phẩm:
+              br
+              input(type='text', name='brand', value='')
+              br
+              label(for='name') Tên sản phẩm:
+              br
+              input(type='text', name='name', value='')
+              br
+              label(for='price') Giá sản phẩm:
+              br
+              input(type='text', name='price', value='')
+              br
+              label(for='info') Chi tiết sản phẩm:
+              br
+              textarea(rows='3', cols='60', name='info')
+              br
+              label(for='file') Chọn ảnh:
+              br
+              input(type='file', name='file')
+              br
+              button XONG
+              br
+          // Modal footer
+          .modal-footer
+            button.btn.btn-danger(type='button', data-dismiss='modal') ĐÓNG
+    // Modal Minus
+    #minus.modal.fade
+      .modal-dialog.modal-xl
+        .modal-content
+          // Modal Header
+          .modal-header
+            h4.modal-title XÓA SẢN PHẨM
+            button.close(type='button', data-dismiss='modal') ×
+          // Modal body
+          .modal-body
+            table.table.table-hover.text-center
+              thead
+                tr
+                  th Hãng sản phẩm
+                  th Tên sản phẩm
+                  th Giá sản phẩm
+                  th Xóa sản phẩm
+              tbody
+              for product in productList
+                tr
+                  td= product.brand
+                  td.del-product-send= product.name
+                  td= product.price
+                  td
+                    i.fas.fa-trash-alt
+          // Modal footer
+          .modal-footer
+            button.btn.btn-danger(type='button', data-dismiss='modal') ĐÓNG
+    // Modal Repair
+    #repair.modal.fade
+      .modal-dialog.modal-xl
+        .modal-content
+          // Modal Header
+          .modal-header
+            h4.modal-title SỬA SẢN PHẨM
+            button.close(type='button', data-dismiss='modal') ×
+          // Modal body
+          .modal-body
+            table.table.table-hover.text-center
+              thead
+                tr
+                  th Hãng sản phẩm
+                  th Tên sản phẩm
+                  th Giá sản phẩm
+                  th Sửa sản phẩm
+              tbody
+              for product in productList
+                tr
+                  td= product.brand
+                  td.repair-product-send= product.name
+                  td= product.price
+                  td
+                    i.fas.fa-retweet(data-toggle='modal', data-target='#repair-plus')
+            #repair-plus.modal.fade
+              .modal-dialog
+                .modal-content
+                  // Modal Header
+                  .modal-header
+                    h4.modal-title SỬA SẢN PHẨM
+                    button.close(type='button', data-dismiss='modal') ×
+                  // Modal body
+                  .modal-body
+                    form(action='/repair', method='POST', enctype='multipart/form-data')
+                      label(for='brand') Hãng sản phẩm:
+                      br
+                      input#brand-product(type='text', name='brand', value='')
+                      br
+                      label(for='name') Tên sản phẩm:
+                      br
+                      input#name-product(type='text', name='name', value='')
+                      br
+                      label(for='price') Giá sản phẩm:
+                      br
+                      input#price-product(type='text', name='price', value='')
+                      input#repair-product(type='text', name='repair', value='' style='display:none')
+                      br
+                      label(for='info') Chi tiết sản phẩm:
+                      br
+                      textarea#info-product(rows='3', cols='60', name='info')
+                      br
+                      label(for='oke') Chọn ảnh:
+                      br
+                      input#plus-image(type='file', name='file')
+                      br
+                      button#btn-confirm XONG
+                      br
+                  // Modal footer
+                  .modal-footer
+                    button.btn.btn-danger(type='button', data-dismiss='modal') ĐÓNG
+          // Modal footer
+          .modal-footer
+            button.btn.btn-danger(type='button', data-dismiss='modal') ĐÓNG
+    script(src='./src/Jquery/jquery.js')
+    script(src='./src/main.js')
+    script(src='https://kit.fontawesome.com/a076d05399.js')
+    script(src='./src/BS/js/bootstrap.min.js')

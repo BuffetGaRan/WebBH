@@ -16,6 +16,163 @@ body{
 				width: 50px;
 			}
 		}
+
+		form{
+
+			i{
+				font-size: 20px;
+				cursor: pointer;
+				border-radius: 10px;
+				padding: 5px;
+				color: #192a56;
+				margin: 0 5px;
+			}
+
+			i:nth-child(2){
+				margin-right: 10px;
+			}
+
+			span{
+				position: absolute;
+				font-size: 10px;
+				top: 10px;
+				right: 300px;
+			}
+		}
+	}
+
+	/*Trang Chủ*/
+	.trangchu{
+
+		.sale{
+
+			.carousel{
+				margin-top: 25px;
+			}
+
+			.carousel-inner{
+
+				img{
+					height: 330px;
+				}
+			}
+
+			.quangcao{
+
+				img{
+					height: 177px;
+				    width: 100%;
+				    margin-top: 25px;
+				}
+			}
+
+			.click_sale{
+				display: flex;
+				margin-left: -40px;
+
+				li{
+					border: 1px solid #dcdde1;
+				    list-style-type: none;
+				    background: white;
+				    width: 100%;
+				    height: 50px;
+				    text-align: center;
+				    cursor: pointer;
+				    font-weight: bold;
+
+				    p{
+				    	margin-top: 10px;
+				    }
+				}
+			}
+		}
+
+		.product{
+
+			img{
+				width: 250px;
+			    height: 50px;
+			    padding: 10px;
+			    background: white;
+			    border-radius: 5px;
+			    margin: 15px 0 0 0;
+			}
+
+			.col{
+				padding: 10px;
+			}
+		}
+
+		.highlight{
+
+			img{
+				width: 100%;
+			}
+
+			.header{
+				margin-top: 30px;
+				background: white;
+				
+				button{
+					outline: none;
+				    background: white;
+				    border: 2px solid grey;
+				    border-radius: 4px;
+				    margin: 7px;
+				    padding: 0 20px;
+				}
+
+				h5{
+					margin-top: 8px;
+					font-weight: bold;
+				}
+			}
+
+			.header:nth-child(1){
+				background: rgba(127, 143, 166, 0.5);
+			    border-right: 5px solid;
+			    border-color: black;
+			    border-radius: 0 10px 10px 0;
+
+			    h5{
+			    	margin-left: 20px;
+			    }
+			}
+
+			.content{
+
+				.col-3{
+					padding: 20px;
+					background: white;
+					border: 2px solid #f8f9fa;
+
+					a img:hover{
+						transform: scale(1.01);
+      					transition: .4s;
+					}
+				}
+
+				.col-3::before{
+				    content: '';
+				    left: -100px;
+				    width: 50px;
+				    height: 50px;
+				    border-radius: 50%;
+				    background: yellow;
+				    position: absolute;
+				}
+
+				a:nth-child(2)::before{
+					content: 'giảm';
+				    width: 50px;
+				    height: 50px;
+				    border-radius: 50%;
+				    background: yellow;
+				    position: absolute;
+				    left: 100px;
+				}
+			}
+		}
 	}
 
 	/*Content Iphone*/
@@ -227,14 +384,93 @@ body{
 
 	/*Chat*/
 	.chat{
-		width: 200px;
-		height: 20px;
-		background: red;
+		position: fixed;
+      	bottom: -300px;
+      	right: 10px;
+      	border: 1px solid;
+      	border-top-left-radius: 6px; 
+      	border-top-right-radius: 6px; 
+
+      	.header-chat{
+      		width: 270px;
+      		height: 26px;
+		    background: red;
+		    text-align: center;
+		    padding: 3px 10px;
+		    border-top-left-radius: 6px; 
+		    border-top-right-radius: 6px; 
+		    cursor: pointer;
+
+		    p{
+		    	font-weight: bold;
+      			font-size: 13px;
+      			color: white;
+		    }
+      	}
+
+      	.area-chat{
+      		width: 270px;
+      		height: 300px;
+      		background: white;
+      		position: relative;
+
+      		small{
+      			margin-left: 5px;
+      			color: red;
+      		}
+
+      		hr{
+      			margin-top: 3px;
+      		}
+
+      		input{
+      			position: absolute;
+	      		bottom: 10px;
+	      		left: 15px;
+	      		width: 90%;
+	      		height: 35px;
+	      		outline: none;
+	      		box-shadow: inset .1px .1px 6px brown;
+	      		border: 1px solid #7f8fa6;
+	      		border-radius: 7px;
+      		}
+
+      		input::placeholder{
+      			font-size: 14px;
+      			text-align: center;
+      		}
+      	}
+
+      	.area-show{
+      		width: 100%;
+      		height: 225px;
+      		background: white;
+      		position: absolute;
+      	}
+	}
+
+	/*Scroll*/
+	.scroll{
+		width: 30px;
+	    height: 30px;
+	    border: 2px solid black;
+	    text-align: center;
+	    border-radius: 50%;
+	    padding: 2px;
+	    position: fixed;
+	    right: 30px;
+	    top: 70%;
+	    visibility: hidden;
+	    background: white;
+
+	    a{
+	    	color: black;
+	    }
 	}
 
 	/*Quản Trị*/
 	.quantri{
-		
+	
 		*{
 			margin: 0;
 			padding: 0;
@@ -401,12 +637,12 @@ body{
 						right: 70px;
 						font-size: 13px;
 						text-transform: none;
+						padding-left: 15px;
 					}
 
 					input::placeholder{
 						font-size: 15px;
 						text-transform: none;
-						padding-left: 10px;
 					}
 
 					button{
@@ -451,6 +687,53 @@ body{
 						top: 70%;
 						left: 50%;
 						transform: translate(-50%, -50%);
+					}
+				}
+			}
+
+			/*Hotline*/
+			.hotline{
+				margin: 100px auto;
+
+				.col-12:first-child{
+
+					h4{
+						color: pink;
+						text-transform: uppercase;
+						font-weight: bold;
+					}
+				}
+
+				.col-12:last-child{
+					margin-top: 100px;
+					display: flex;
+					justify-content: center;
+
+					div{
+						width: 21%;
+						padding: 15px;
+						border: 1px solid black;
+						border-radius: 10px;
+						background: rgba(220, 221, 225,1.0);
+						text-align: center;
+						height: 300px;
+						display: grid;
+						margin: 0 100px;
+					}
+
+					p{
+						font-size: 20px;
+						text-transform: uppercase;
+						font-weight: bold;
+						margin-top: 10px;
+					}
+
+					small{
+						font-weight: bold;
+					}
+
+					a{
+						color: black;
 					}
 				}
 			}

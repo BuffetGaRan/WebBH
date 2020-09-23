@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Login
+    link(rel='stylesheet', type='text/css', href='../css/style.css')
+    meta(charset='utf-8')
+  body
+    .login
+      .bg
+      .main
+        .bg2
+        h1 Đăng nhập
+        form(action='/admin' method='POST')
+          label(for='t1') Email: 
+          input#t1(type='text', placeholder='Email...', name='user')
+          label(for='t2') Password: 
+          input#t2(type='password', placeholder='Password...', name='password')
+          button Đăng nhập
+        a(href='#') Quên mật khẩu
+        a(href='#') Tạo tài khoản

@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 
+
 // Compile scss into css
 function style(){
 	// 1. Where is my scss file
@@ -14,6 +15,7 @@ function style(){
 	.pipe(browserSync.stream());
 }
 
+
 function watch(){
 	browserSync.init({
 		server:{
@@ -22,8 +24,9 @@ function watch(){
 	});
 	gulp.watch('./scss/**/*.scss', style);
 	gulp.watch('./*.html').on('change', browserSync.reload);
-	gulp.watch('./js/**/*.js').on('change', browserSync.reload);
+	gulp.watch('./src/**/*.js').on('change', browserSync.reload);
 }
+
 
 exports.style = style;
 exports.watch = watch;

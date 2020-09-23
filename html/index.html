@@ -6,7 +6,7 @@
 	</title>
 	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
 	<link href="../src/BS/css/bootstrap.min.css" rel="stylesheet"/>
-	<link href="../css/trangchu.css" rel="stylesheet" type="text/css">
+	<link href="../css/style.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="../src/Icon/css/all.css">
 </head>
 <body>
@@ -43,15 +43,19 @@
 					</li>
 				</ul>
 				<form class="form-inline" action="/action_page.php">
+					<a href="http://localhost:3000/login"><i class="fas fa-user"></i></a>
+					<i class="fas fa-cart-plus" data-toggle="modal" data-target="#mylist"></i>
+					<span class="badge badge-warning">1</span>
 					<input class="form-control mr-sm-2" type="text" placeholder="Tìm Sản Phẩm">
 					<button class="btn btn-success" type="submit">Search</button>
 				</form>
+				
 			</nav>
 		</div>
 	</div>
 
 	<!-- Content -->
-	<div class="container">	
+	<div class="container trangchu">	
 		<!-- Sale -->
 		<div class="row sale">
 			<div class="col-sm-8">
@@ -510,6 +514,47 @@
 	<!-- Scroll Top -->
 	<div class="scroll">
 		<a href=""><i class="fas fa-angle-double-up"></i></a>
+	</div>
+
+	<!-- List sản phẩm -->
+	<div class="modal fade" id="mylist">
+		<div class="modal-dialog modal-lg modal-dialog-scrollable">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">NHỮNG SẢN PHẨM BẠN ĐÃ CHỌN</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<table class="table table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>Hãng sản phẩm</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá sản phẩm</th>
+                                <th>Bỏ sản phẩm</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>brand</td>
+                                <td>name</td>
+                                <td>price</td>
+                                <td><i class="fas fa-trash-alt"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">ĐÓNG</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 <script src="../src/Jquery/jquery.js">

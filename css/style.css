@@ -4,10 +4,12 @@ body {
   padding: 0;
   margin: 0;
   /*Navbar*/
+  /*Trang Chủ*/
   /*Content Iphone*/
   /*Content Samsung*/
   /*Footer*/
   /*Chat*/
+  /*Scroll*/
   /*Quản Trị*/
   /*Login*/ }
   body img {
@@ -18,6 +20,96 @@ body {
       padding: 5px; }
       body .navbar-fluid .navbar img {
         width: 50px; }
+    body .navbar-fluid form i {
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+      padding: 5px;
+      color: #192a56;
+      margin: 0 5px; }
+    body .navbar-fluid form i:nth-child(2) {
+      margin-right: 10px; }
+    body .navbar-fluid form span {
+      position: absolute;
+      font-size: 10px;
+      top: 10px;
+      right: 300px; }
+  body .trangchu .sale .carousel {
+    margin-top: 25px; }
+  body .trangchu .sale .carousel-inner img {
+    height: 330px; }
+  body .trangchu .sale .quangcao img {
+    height: 177px;
+    width: 100%;
+    margin-top: 25px; }
+  body .trangchu .sale .click_sale {
+    display: flex;
+    margin-left: -40px; }
+    body .trangchu .sale .click_sale li {
+      border: 1px solid #dcdde1;
+      list-style-type: none;
+      background: white;
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold; }
+      body .trangchu .sale .click_sale li p {
+        margin-top: 10px; }
+  body .trangchu .product img {
+    width: 250px;
+    height: 50px;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    margin: 15px 0 0 0; }
+  body .trangchu .product .col {
+    padding: 10px; }
+  body .trangchu .highlight img {
+    width: 100%; }
+  body .trangchu .highlight .header {
+    margin-top: 30px;
+    background: white; }
+    body .trangchu .highlight .header button {
+      outline: none;
+      background: white;
+      border: 2px solid grey;
+      border-radius: 4px;
+      margin: 7px;
+      padding: 0 20px; }
+    body .trangchu .highlight .header h5 {
+      margin-top: 8px;
+      font-weight: bold; }
+  body .trangchu .highlight .header:nth-child(1) {
+    background: rgba(127, 143, 166, 0.5);
+    border-right: 5px solid;
+    border-color: black;
+    border-radius: 0 10px 10px 0; }
+    body .trangchu .highlight .header:nth-child(1) h5 {
+      margin-left: 20px; }
+  body .trangchu .highlight .content .col-3 {
+    padding: 20px;
+    background: white;
+    border: 2px solid #f8f9fa; }
+    body .trangchu .highlight .content .col-3 a img:hover {
+      transform: scale(1.01);
+      transition: .4s; }
+  body .trangchu .highlight .content .col-3::before {
+    content: '';
+    left: -100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: yellow;
+    position: absolute; }
+  body .trangchu .highlight .content a:nth-child(2)::before {
+    content: 'giảm';
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: yellow;
+    position: absolute;
+    left: 100px; }
   body .content_iphone {
     /*Carousel*/
     /*Product*/ }
@@ -146,9 +238,67 @@ body {
       display: block;
       line-height: 35px; }
   body .chat {
-    width: 200px;
-    height: 20px;
-    background: red; }
+    position: fixed;
+    bottom: -300px;
+    right: 10px;
+    border: 1px solid;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px; }
+    body .chat .header-chat {
+      width: 270px;
+      height: 26px;
+      background: red;
+      text-align: center;
+      padding: 3px 10px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      cursor: pointer; }
+      body .chat .header-chat p {
+        font-weight: bold;
+        font-size: 13px;
+        color: white; }
+    body .chat .area-chat {
+      width: 270px;
+      height: 300px;
+      background: white;
+      position: relative; }
+      body .chat .area-chat small {
+        margin-left: 5px;
+        color: red; }
+      body .chat .area-chat hr {
+        margin-top: 3px; }
+      body .chat .area-chat input {
+        position: absolute;
+        bottom: 10px;
+        left: 15px;
+        width: 90%;
+        height: 35px;
+        outline: none;
+        box-shadow: inset .1px .1px 6px brown;
+        border: 1px solid #7f8fa6;
+        border-radius: 7px; }
+      body .chat .area-chat input::placeholder {
+        font-size: 14px;
+        text-align: center; }
+    body .chat .area-show {
+      width: 100%;
+      height: 225px;
+      background: white;
+      position: absolute; }
+  body .scroll {
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    text-align: center;
+    border-radius: 50%;
+    padding: 2px;
+    position: fixed;
+    right: 30px;
+    top: 70%;
+    visibility: hidden;
+    background: white; }
+    body .scroll a {
+      color: black; }
   body .quantri * {
     margin: 0;
     padding: 0;
@@ -233,7 +383,8 @@ body {
     border-radius: 10px;
     transition: .6s;
     /*Mess*/
-    /*Storage*/ }
+    /*Storage*/
+    /*Hotline*/ }
     body .quantri .tab-content .mess .person {
       background: black;
       height: 620px;
@@ -273,11 +424,11 @@ body {
         bottom: 10px;
         right: 70px;
         font-size: 13px;
-        text-transform: none; }
+        text-transform: none;
+        padding-left: 15px; }
       body .quantri .tab-content .mess .chat-content input::placeholder {
         font-size: 15px;
-        text-transform: none;
-        padding-left: 10px; }
+        text-transform: none; }
       body .quantri .tab-content .mess .chat-content button {
         width: 55px;
         height: 30px;
@@ -310,6 +461,35 @@ body {
           top: 70%;
           left: 50%;
           transform: translate(-50%, -50%); }
+    body .quantri .tab-content .hotline {
+      margin: 100px auto; }
+      body .quantri .tab-content .hotline .col-12:first-child h4 {
+        color: pink;
+        text-transform: uppercase;
+        font-weight: bold; }
+      body .quantri .tab-content .hotline .col-12:last-child {
+        margin-top: 100px;
+        display: flex;
+        justify-content: center; }
+        body .quantri .tab-content .hotline .col-12:last-child div {
+          width: 21%;
+          padding: 15px;
+          border: 1px solid black;
+          border-radius: 10px;
+          background: #dcdde1;
+          text-align: center;
+          height: 300px;
+          display: grid;
+          margin: 0 100px; }
+        body .quantri .tab-content .hotline .col-12:last-child p {
+          font-size: 20px;
+          text-transform: uppercase;
+          font-weight: bold;
+          margin-top: 10px; }
+        body .quantri .tab-content .hotline .col-12:last-child small {
+          font-weight: bold; }
+        body .quantri .tab-content .hotline .col-12:last-child a {
+          color: black; }
   body .quantri .bg {
     background: url("/ImgVid/bg-quantri.jpg");
     background-size: cover;
